@@ -1,0 +1,74 @@
+.mainLayoutDiv {
+  display: flex;
+  height: 100%;
+
+  .mainNavBar {
+    background-color: #fff;
+
+    height: 100%;
+    width: 6%;
+    margin: 0px 35px 0px 0px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .mainNavBarLogo {
+      width: 80px;
+      height: 70px;
+    }
+
+    ul.mainNavbarLinks {
+      height: 40%;
+      width: 5.5%;
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      top: 15%;
+      position: absolute;
+
+      li {
+        height: 40px;
+
+        list-style-type: none;
+        text-decoration: none;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          fill: #44505c;
+        }
+      }
+      
+      li.active {
+        box-shadow: -5px 0px 0px 0px #1a4fe3;
+      }
+    }
+
+    ul.mainNavbarAuth {
+      height: 10%;
+
+      padding: 0;
+      margin: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      li {
+        list-style-type: none;
+        text-decoration: none;
+
+        svg {
+          fill: #44505c;
+        }
+      }
+    }
+  }
+}
