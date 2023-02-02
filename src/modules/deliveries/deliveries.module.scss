@@ -1,0 +1,25 @@
+.mainDeliveriesBlock {
+  width: 40%;
+
+  .orderCard {
+    width: 50%;
+    height: 20%;
+    border-radius: 12px;
+
+    padding: 20px;
+    margin: 20px 0px 20px 0px;
+
+    background-color: #ffffff;
+    color: #000;
+
+    .orderCardHeader {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .orderCard.active {
+    background-color: #1b54fe;
+    color: #fff;
+  }
+}

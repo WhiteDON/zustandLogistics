@@ -11,6 +11,8 @@ export interface DeliveriesState {
   errors: [] | null;
   addOrder: (name: string) => void;
   fetchOrders: () => void;
+  deleteOrder: (item: string | number) => void;
+  changeOrderStatus: (item: string | number, changes: Object) => void;
 }
 
 const useDeliveriesStore = create<DeliveriesState>()(
@@ -23,7 +25,9 @@ const useDeliveriesStore = create<DeliveriesState>()(
         set((state) => {
           state.orders.push({ id: nanoid(), name });
         }),
-      fetchOrders: async () => request(set, 'orders'),
+      fetchOrders: async () => request(set, 'orders', '', 'get'),
+      deleteOrder: async (item) => request(set, 'orders', item, 'delete'),
+      changeOrderStatus: async (item, changes) => request(set, 'orders', item, 'patch', changes),
     }))
   )
 );

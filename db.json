@@ -2,8 +2,21 @@
   "orders": [
     {
       "id": 1,
-      "status": 1,
-      "orderStatusChanges": [1675253260007]
+      "status": 0,
+      "orderStatusChanges": [
+        1675253260007,
+        0,
+        0
+      ]
+    },
+    {
+      "id": 2,
+      "status": 2,
+      "orderStatusChanges": [
+        1675253260007,
+        0,
+        0
+      ]
     }
   ]
 }
