@@ -1,7 +1,7 @@
 import useDeliveriesStore from "../../../stores/deliveries.store";
 import styles from "../deliveries.module.scss";
 import { shallow } from "zustand/shallow";
-import { MenuProps, Timeline, Button, Dropdown, message } from "antd";
+import { MenuProps, Timeline, Button, Dropdown, message, Slider } from "antd";
 import { useState } from "react";
 
 const items: MenuProps["items"] = [
@@ -25,7 +25,7 @@ const items: MenuProps["items"] = [
   },
 ];
 
-const OrderCard = ({ props = [] }) => {
+const OrderCard: React.FC = ({ props = [] }) => {
   const deleteOrder = useDeliveriesStore((state) => state.deleteOrder, shallow);
   const changeOrderStatus = useDeliveriesStore(
     (state) => state.changeOrderStatus,
@@ -47,6 +47,23 @@ const OrderCard = ({ props = [] }) => {
       type: "error",
       content: messageText,
     });
+  };
+
+  const getSliderColor = (status) => {
+    switch (status) {
+      case 1:
+        return "blue";
+        break;
+      case 1:
+        return "blue";
+        break;
+      case 1:
+        return "blue";
+        break;
+      default:
+        return "red";
+        break;
+    }
   };
 
   const handleMenuClick: MenuProps["onClick"] = (e) => {
@@ -119,6 +136,16 @@ const OrderCard = ({ props = [] }) => {
                   ...
                 </Button>
               </Dropdown>
+            </div>
+            <div className={styles.orderCardSliderDiv}>
+              <Slider
+                tooltip={{ formatter: null }}
+                max={2}
+                value={item.status}
+                className={styles.orderCardSlider}
+                handleStyle={{ display: "none" }}
+                trackStyle={{ backgroundColor: getSliderColor(item.status) }}
+              />
             </div>
             <div className="">
               <Timeline mode={"left"}>
