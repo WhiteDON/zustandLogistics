@@ -4,6 +4,7 @@ import { immer } from "zustand/middleware/immer";
 import axios from "axios";
 import { nanoid } from 'nanoid'
 import { request } from "./api/request";
+import { MessageInstance } from "antd/es/message/interface";
 
 export interface DeliveriesState {
   orders: Array<Object>;
@@ -12,7 +13,7 @@ export interface DeliveriesState {
   addOrder: (name: string) => void;
   fetchOrders: () => void;
   deleteOrder: (item: string | number) => void;
-  changeOrderStatus: (item: string | number, changes: Object) => void;
+  changeOrderStatus: (item: string | number, changes: Object, messageApi: MessageInstance) => void;
 }
 
 const useDeliveriesStore = create<DeliveriesState>()(
@@ -27,7 +28,7 @@ const useDeliveriesStore = create<DeliveriesState>()(
         }),
       fetchOrders: async () => request(set, 'orders', '', 'get'),
       deleteOrder: async (item) => request(set, 'orders', item, 'delete'),
-      changeOrderStatus: async (item, changes) => request(set, 'orders', item, 'patch', changes),
+      changeOrderStatus: async (item, changes, messageApi) => request(set, 'orders', item, 'patch', changes, messageApi),
     }))
   )
 );
